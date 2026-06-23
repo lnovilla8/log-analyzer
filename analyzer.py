@@ -2,8 +2,14 @@ import re
 from collections import defaultdict
 from datetime import datetime
 
+output_lines = []
+
+def log(text=""):
+    print(text)
+    output_lines.append(text)
+
 # --- Configuration ---
-LOG_FILE = "auth.log"
+LOG_FILE = input("Enter log file: ")
 THRESHOLD = 5  # number of failures to trigger alert
 WINDOW_SECONDS = 60  # time window to check for brute force
 
@@ -17,11 +23,11 @@ pattern = re.compile(
 )
 
 # --- Parse the log file ---
-print("=" * 60)
-print("  SSH BRUTE FORCE DETECTION REPORT")
-print("=" * 60)
-print(f"\nLog file : {LOG_FILE}")
-print(f"Threshold: {THRESHOLD} failures within {WINDOW_SECONDS} seconds\n")
+log("=" * 60)
+log("  SSH BRUTE FORCE DETECTION REPORT")
+log("=" * 60)
+log(f"\nLog file : {LOG_FILE}")
+log(f"Threshold: {THRESHOLD} failures within {WINDOW_SECONDS} seconds\n")
 
 with open(LOG_FILE, "r", encoding="utf-8", errors="ignore") as f:
     for line in f:
@@ -36,9 +42,9 @@ with open(LOG_FILE, "r", encoding="utf-8", errors="ignore") as f:
             failed_attempts[ip].append((timestamp, username))
 
 # --- Detect brute force ---
-print("-" * 60)
-print("FLAGGED IPs (Brute Force Detected)")
-print("-" * 60)
+log("-" * 60)
+log("FLAGGED IPs (Brute Force Detected)")
+log("-" * 60)
 
 brute_force_found = False
 
@@ -54,32 +60,37 @@ for ip, attempts in failed_attempts.items():
             if ip not in flagged_ips:
                 flagged_ips.add(ip)
                 usernames = set(a[1] for a in attempts)
-                print(f"\n  [!] ALERT: {ip}")
-                print(f"      Total failed attempts : {len(attempts)}")
-                print(f"      Usernames tried        : {', '.join(usernames)}")
-                print(f"      First attempt          : {attempts[0][0]}")
-                print(f"      Last attempt           : {attempts[-1][0]}")
+                log(f"\n  [!] ALERT: {ip}")
+                log(f"      Total failed attempts : {len(attempts)}")
+                log(f"      Usernames tried        : {', '.join(usernames)}")
+                log(f"      First attempt          : {attempts[0][0]}")
+                log(f"      Last attempt           : {attempts[-1][0]}")
                 brute_force_found = True
             break
 
 if not brute_force_found:
-    print("\n  No brute force activity detected.")
+    log("\n  No brute force activity detected.")
 
 # --- Summary ---
-print("\n" + "-" * 60)
-print("SUMMARY")
-print("-" * 60)
-print(f"  Total IPs with failed attempts : {len(failed_attempts)}")
-print(f"  IPs flagged as brute force     : {len(flagged_ips)}")
-print(f"  IPs below threshold            : {len(failed_attempts) - len(flagged_ips)}")
+log("\n" + "-" * 60)
+log("SUMMARY")
+log("-" * 60)
+log(f"  Total IPs with failed attempts : {len(failed_attempts)}")
+log(f"  IPs flagged as brute force     : {len(flagged_ips)}")
+log(f"  IPs below threshold            : {len(failed_attempts) - len(flagged_ips)}")
 
-print("\n" + "-" * 60)
-print("ALL FAILED ATTEMPT COUNTS BY IP")
-print("-" * 60)
+log("\n" + "-" * 60)
+log("ALL FAILED ATTEMPT COUNTS BY IP")
+log("-" * 60)
 for ip, attempts in sorted(failed_attempts.items(), key=lambda x: len(x[1]), reverse=True):
     flag = " [FLAGGED]" if ip in flagged_ips else ""
-    print(f"  {ip:<20} {len(attempts)} attempts{flag}")
+    log(f"  {ip:<20} {len(attempts)} attempts{flag}")
 
-print("\n" + "=" * 60)
-print("  Scan complete.")
-print("=" * 60)
+log("\n" + "=" * 60)
+log("  Scan complete.")
+log("=" * 60)
+
+with open("report.txt", "w") as f:
+    f.write("\n".join(output_lines))
+
+log("\nReport saved to report.txt")
