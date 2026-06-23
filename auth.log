@@ -1,0 +1,23 @@
+Jun 22 18:01:01 kali sshd[1001]: Accepted password for kali from 192.168.1.5 port 22 ssh2
+Jun 22 18:05:12 kali sshd[1002]: Failed password for invalid user admin from 203.0.113.42 port 45231 ssh2
+Jun 22 18:05:13 kali sshd[1003]: Failed password for invalid user admin from 203.0.113.42 port 45232 ssh2
+Jun 22 18:05:14 kali sshd[1004]: Failed password for invalid user admin from 203.0.113.42 port 45233 ssh2
+Jun 22 18:05:15 kali sshd[1005]: Failed password for invalid user admin from 203.0.113.42 port 45234 ssh2
+Jun 22 18:05:16 kali sshd[1006]: Failed password for invalid user admin from 203.0.113.42 port 45235 ssh2
+Jun 22 18:10:01 kali sshd[1007]: Failed password for root from 198.51.100.7 port 51234 ssh2
+Jun 22 18:10:02 kali sshd[1008]: Failed password for root from 198.51.100.7 port 51235 ssh2
+Jun 22 18:10:04 kali sshd[1009]: Failed password for root from 198.51.100.7 port 51236 ssh2
+Jun 22 18:10:06 kali sshd[1010]: Failed password for root from 198.51.100.7 port 51237 ssh2
+Jun 22 18:10:08 kali sshd[1011]: Failed password for root from 198.51.100.7 port 51238 ssh2
+Jun 22 18:10:10 kali sshd[1012]: Failed password for root from 198.51.100.7 port 51239 ssh2
+Jun 22 18:15:00 kali sshd[1013]: Failed password for invalid user test from 172.16.0.55 port 60001 ssh2
+Jun 22 18:20:00 kali sshd[1014]: Accepted password for kali from 192.168.1.5 port 22 ssh2
+Jun 22 18:25:01 kali sshd[1015]: Failed password for invalid user oracle from 203.0.113.42 port 45240 ssh2
+Jun 22 18:25:02 kali sshd[1016]: Failed password for invalid user oracle from 203.0.113.42 port 45241 ssh2
+Jun 22 18:25:03 kali sshd[1017]: Failed password for invalid user oracle from 203.0.113.42 port 45242 ssh2
+Jun 22 18:30:00 kali sshd[1018]: Failed password for invalid user user from 10.0.0.99 port 33001 ssh2
+Jun 22 18:30:01 kali sshd[1019]: Failed password for invalid user user from 10.0.0.99 port 33002 ssh2
+Jun 22 18:30:02 kali sshd[1020]: Failed password for invalid user user from 10.0.0.99 port 33003 ssh2
+Jun 22 18:30:03 kali sshd[1021]: Failed password for invalid user user from 10.0.0.99 port 33004 ssh2
+Jun 22 18:30:04 kali sshd[1022]: Failed password for invalid user user from 10.0.0.99 port 33005 ssh2
+Jun 22 18:35:00 kali sshd[1023]: Accepted password for kali from 192.168.1.10 port 22 ssh2
