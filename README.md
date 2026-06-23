@@ -7,7 +7,7 @@ This brute-force log analyzer analyzes event logs and detects whether a brute-fo
 A brute-force attack occurs when an adversary repeatedly attempts to log in to an account they are not permitted to access. A brute force analyzer is important because it automatically alerts SOC analysts when someone is trying to break into an account. This tool simulates the kind of log triage a SOC analyst performs daily using a SIEM like Splunk or Microsoft Sentinel.
 
 ## How to run it
-Run the script with python3 analyzer.py . It will then prompt you to input the name of the event log file that you want to examine.
+Run the script with "python3 analyzer.py". It will then prompt you to input the name of the event log file that you want to examine.
 
 ## Example output
 ```
