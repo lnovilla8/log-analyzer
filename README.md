@@ -10,6 +10,7 @@ A brute-force attack occurs when an adversary repeatedly attempts to log in to a
 Run the script with python3 analyzer.py . It will then prompt you to input the name of the event log file that you want to examine.
 
 ## Example output
+```
 Enter log file: auth.log
 ============================================================
   SSH BRUTE FORCE DETECTION REPORT
@@ -58,7 +59,7 @@ ALL FAILED ATTEMPT COUNTS BY IP
 ============================================================
   Scan complete.
 ============================================================
-
+```
 ## Skills demonstrated
 Python, regular expressions (re module), log parsing, 
 brute force detection logic, file I/O, datetime manipulation
